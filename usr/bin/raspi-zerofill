@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Be root to run this script
+if [ $UID -ne 0 ]; then
+  echo "Please, type root password..."
+  su -c "$0 $@"
+  exit
+fi
+
+echo "Start filling with zeros..."
+cat /dev/zero > /zero.fill
+sync
+echo "Cleaning up..."
+sleep 5
+sync
+rm -f /zero.fill 
+echo "Done"

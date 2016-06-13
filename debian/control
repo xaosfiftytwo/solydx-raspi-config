@@ -1,0 +1,13 @@
+Source: solydx-raspi-config
+Section: unknown
+Priority: extra
+Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: solydx-raspi-config
+Architecture: armhf
+Depends: ${misc:Depends}, whiptail, parted, lua5.1, triggerhappy, alsa-utils, apt-xapian-index, python-support, deborphan, wget, aptitude, solydxk-system, ufw, mlocate
+Conflicts: raspi-config, raspberrypi-artwork
+Replaces: raspi-config, raspberrypi-artwork
+Description: Configuration for SolydX Raspberry Pi

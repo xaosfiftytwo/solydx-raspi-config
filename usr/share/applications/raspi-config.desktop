@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SolydX RPI configuration
+Comment=Configure SolydX Raspberry PI
+Exec=gksudo "xfce4-terminal -e raspi-config"
+Icon=/usr/share/raspberrypi-artwork/raspberry-pi-logo.svg
+Path=
+Terminal=false
+StartupNotify=false
+Categories=System;
+

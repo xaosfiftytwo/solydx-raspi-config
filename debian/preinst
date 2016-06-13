@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FLE=/etc/skel/.config/xfce4/helpers.rc
+if [ -f $FLE ]; then
+  dpkg-divert --add --rename --divert $FLE.divert $FLE
+fi
+
+cat > $FLE <<EOF
+WebBrowser=epiphany
+MailReader=sylpheed-claws
+FileManager=Thunar
+TerminalEmulator=xfce4-terminal 
+EOF

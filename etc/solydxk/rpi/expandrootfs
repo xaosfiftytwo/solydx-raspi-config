@@ -1,0 +1,6 @@
+#!/bin/bash
+
+/usr/bin/raspi-config --expand-rootfs
+systemctl disable expandrootfs.service
+reboot
+

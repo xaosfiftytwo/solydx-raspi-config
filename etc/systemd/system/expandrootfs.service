@@ -1,0 +1,8 @@
+[Unit]
+Description=Expand rootfs
+
+[Service]
+ExecStart=/etc/solydxk/rpi/expandrootfs
+
+[Install]
+WantedBy=multi-user.target

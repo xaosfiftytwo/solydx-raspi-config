@@ -7,7 +7,5 @@ Standards-Version: 3.9.5
 
 Package: solydx-raspi-config
 Architecture: armhf
-Depends: ${misc:Depends}, whiptail, parted, lua5.1, triggerhappy, alsa-utils, apt-xapian-index, python-support, deborphan, wget, aptitude, solydxk-system, ufw, mlocate
-Conflicts: raspi-config, raspberrypi-artwork
-Replaces: raspi-config, raspberrypi-artwork
+Depends: ${misc:Depends}, raspi-config, whiptail, parted, lua5.1, triggerhappy, alsa-utils, apt-xapian-index, python-support, deborphan, wget, aptitude, solydxk-system, ufw, mlocate
 Description: Configuration for SolydX Raspberry Pi

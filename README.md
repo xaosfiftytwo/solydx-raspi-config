@@ -1,2 +1,2 @@
 # solydx-raspi-config
-System adjustments for SolydX RPI
+System adjustments for SolydX RPI 

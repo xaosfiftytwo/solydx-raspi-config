@@ -1,3 +1,15 @@
+solydx-raspi-config (2016.06.17) solydxk; urgency=low
+
+  * Handle enabling/disabling expandrootfs service
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 17 Jun 2016 09:42:49 +0200
+
+solydx-raspi-config (2016.06.14) solydxk; urgency=low
+
+  * Adapted for latest Raspbian
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Tue, 14 Jun 2016 13:59:34 +0200
+
 solydx-raspi-config (20160302) solydxk; urgency=low
 
   * Updated raspi-config for SolydXK

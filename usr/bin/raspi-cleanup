@@ -10,6 +10,13 @@ fi
 # Packages that deborphan must NOT treat as orphans - comma separated list
 NotOrphan='baloo'
 
+# --force-yes is deprecated in stretch
+FORCE='--force-yes'
+VER=$(head -c 1 /etc/debian_version | sed 's/[a-zA-Z]/0/' 2>/dev/null || echo 0)
+if [ "$VER" -eq 0 ] || [ "$VER" -gt 8 ]; then
+  FORCE='--allow-downgrades --allow-remove-essential --allow-change-held-packages'
+fi
+
 # Write the current up version
 if [ -e '/usr/lib/solydxk/updatemanager/files' ]; then
   wget http://repository.solydxk.com/umfiles/repo.info
@@ -21,8 +28,8 @@ if [ -e '/usr/lib/solydxk/updatemanager/files' ]; then
 fi
 
 # Cleanup
-apt-get -y --force-yes clean
-apt-get -y --force-yes autoremove
+apt-get -y $FORCE clean
+apt-get -y $FORCE autoremove
 aptitude -y purge ~c
 aptitude -y unmarkauto ~M
 find . -type f -name "*.dpkg*" -exec rm {} \;
@@ -36,7 +43,7 @@ for PCK in $(env LANG=C bash -c "apt-show-versions | grep 'available' | cut -d':
     fi
   done
   if $REMOVE; then
-    apt-get purge -y --force-yes $PCK
+    apt-get purge -y $FORCE $PCK
   fi
 done
 
@@ -45,9 +52,9 @@ echo "Removing orphaned packages . . ."
 Exclude=${NotOrphan//,/\/d;/}
 Orphaned=$(deborphan | sed '/'$Exclude'/d')
 while [ "$Orphaned" ]; do
-   apt-get -y --force-yes purge $Orphaned
+   apt-get -y $FORCE purge $Orphaned
    RC=$(dpkg-query -l | sed -n 's/^rc\s*\(\S*\).*/\1/p')
-   [ "$RC" ] && apt-get -y --force-yes purge $RC
+   [ "$RC" ] && apt-get -y $FORCE purge $RC
    Orphaned=$(deborphan | sed '/'$Exclude':/d')
 done
 

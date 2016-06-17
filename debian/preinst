@@ -6,7 +6,7 @@ if [ -f $FLE ]; then
 fi
 
 cat > $FLE <<EOF
-WebBrowser=epiphany
+WebBrowser=firefox
 MailReader=sylpheed-claws
 FileManager=Thunar
 TerminalEmulator=xfce4-terminal 
